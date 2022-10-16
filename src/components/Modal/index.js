@@ -1,4 +1,4 @@
-function Modal({ currentPhoto }) {
+function Modal({ onClose, currentPhoto }) {
   const { name, category, description, index } = currentPhoto;
   return (
     <div className="modalBackdrop">
@@ -12,7 +12,9 @@ function Modal({ currentPhoto }) {
           key={image.name}
         />
         <p>Photo Description</p>
-        <button type="button">Close this modal</button>
+        <button onClick={onClose} type="button">
+          Close this modal
+        </button>
       </div>
     </div>
   );
