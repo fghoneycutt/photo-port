@@ -1,23 +1,23 @@
-function Modal({ onClose, currentPhoto }) {
-  const { name, category, description, index } = currentPhoto;
+import React from 'react';
+
+const Modal = ({ onClose, currentPhoto }) => {
+  const { name, description, category, index } = currentPhoto;
+
   return (
     <div className="modalBackdrop">
       <div className="modalContainer">
-        <h3 className="modalTitle">Photo Name</h3>
+        <h3 className="modalTitle">{name} </h3>
         <img
-          src={require(`../../assets/small/${category}/${i}.jpg`)}
-          alt={image.name}
-          className="img-thumbnail mx-1"
-          onClick={() => toggleModal(image, i)}
-          key={image.name}
+          src={require(`../../assets/large/${category}/${index}.jpg`).default}
+          alt="current category"
         />
-        <p>Photo Description</p>
-        <button onClick={onClose} type="button">
+        <p>{description}</p>
+        <button type="button" onClick={onClose}>
           Close this modal
         </button>
       </div>
     </div>
   );
-}
+};
 
 export default Modal;
